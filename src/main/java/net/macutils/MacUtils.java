@@ -81,8 +81,8 @@ public class MacUtils implements ModInitializer {
 			)
 		)
 		.then(literal("palm").executes(context -> {
-						context.getSource().sendFeedback(Text.literal("On top of oasis portal in portal room 3"));
-						return 0;
+					context.getSource().sendFeedback(Text.literal("On top of oasis portal in portal room 3"));
+					return 0;
 				}
 			)
 		)
