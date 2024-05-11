@@ -43,7 +43,7 @@ public class MacUtils implements ModInitializer {
 		commandMacUtils();
 		commandMacLocations();
 		commandMacProgression();
-		commandMacNumberGame();
+		//commandMacNumberGame();
 
 		// KEYBINDS
 		registerKeyBinds();
