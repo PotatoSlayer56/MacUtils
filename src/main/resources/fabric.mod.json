@@ -3,29 +3,28 @@
 	"id": "macutils",
 	"version": "${version}",
 	"name": "MacUtils",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Utility mod for macbox.minehut.gg",
 	"authors": [
-		"Me!"
+		"PotatoSlayer56"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"discord": "potatoslayer56"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/macutils/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.macutils.MacUtils"
+			"potatoslayer56.macutils.MacUtils"
 		]
 	},
 	"mixins": [
 		"macutils.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {
