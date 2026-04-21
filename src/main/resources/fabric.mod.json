@@ -8,7 +8,8 @@
 		"PotatoSlayer56"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/macutils"
+		"homepage": "https://modrinth.com/mod/macutils",
+		"source": "https://github.com/PotatoSlayer56/MacUtils"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/macutils/icon.png",
