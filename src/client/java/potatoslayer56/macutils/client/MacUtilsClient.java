@@ -20,5 +20,6 @@ public class MacUtilsClient implements ClientModInitializer {
 		LockPitch.register();
 		LockYaw.register();
 		AdMessage.register();
+		CustomCommands.register();
 	}
 }

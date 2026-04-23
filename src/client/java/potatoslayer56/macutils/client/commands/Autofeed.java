@@ -13,12 +13,12 @@ public class Autofeed {
       commandDispatcher.register(ClientCommands.literal("autofeed").executes(context -> {
         Variables.AUTOFEED = !Variables.AUTOFEED;
         if (Variables.AUTOFEED) {
-          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("message.macutils.autofeed.enabled"));
+          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.autofeed.enabled")));
         }
         else {
-          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("message.macutils.autofeed.disabled"));
+          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.autofeed.disabled")));
         }
-        return 1;
+        return 0;
       }));
     }));
 

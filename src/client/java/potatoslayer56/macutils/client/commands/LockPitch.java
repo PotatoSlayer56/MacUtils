@@ -4,6 +4,8 @@ import com.mojang.brigadier.arguments.FloatArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import potatoslayer56.macutils.client.config.Variables;
 
 public class LockPitch {
@@ -13,6 +15,7 @@ public class LockPitch {
         .then(ClientCommands.argument("pitch", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
             Variables.PITCHLOCK = FloatArgumentType.getFloat(context, "pitch");
+            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockpitch.pitchset")).append(String.valueOf(Variables.PITCHLOCK)));
             return 0;
           })
         ));

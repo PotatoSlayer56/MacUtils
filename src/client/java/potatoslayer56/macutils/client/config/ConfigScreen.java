@@ -12,7 +12,7 @@ public class ConfigScreen extends Screen {
   private final @Nullable Screen parent;
 
   public ConfigScreen(@Nullable Screen parent) {
-    super(Component.translatable("screen.title.main"));
+    super(Component.translatable("screen.macutils.title.main"));
     this.parent = parent;
   }
 
@@ -20,47 +20,47 @@ public class ConfigScreen extends Screen {
   protected void init() {
     EditBox customCommand1Input = new EditBox(
       this.font,
-      this.font.width(Component.translatable("config.screen.label.custom-command1")) + 15,
+      this.font.width(Component.translatable("config.macutils.screen.label.custom-command1")) + 15,
       36,
       Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
       16,
-      Component.translatable("config.screen.placeholder.custom-command1")
+      Component.translatable("config.macutils.screen.placeholder.custom-command1")
     );
 
     EditBox customCommand2Input = new EditBox(
       this.font,
-      this.font.width(Component.translatable("config.screen.label.custom-command2")) + 15,
+      this.font.width(Component.translatable("config.macutils.screen.label.custom-command2")) + 15,
       56,
       Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
       16,
-      Component.translatable("config.screen.placeholder.custom-command2")
+      Component.translatable("config.macutils.screen.placeholder.custom-command2")
     );
 
     EditBox customCommand3Input = new EditBox(
       this.font,
-      this.font.width(Component.translatable("config.screen.label.custom-command3")) + 15,
+      this.font.width(Component.translatable("config.macutils.screen.label.custom-command3")) + 15,
       76,
       Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
       16,
-      Component.translatable("config.screen.placeholder.custom-command3")
+      Component.translatable("config.macutils.screen.placeholder.custom-command3")
     );
 
     EditBox customCommand4Input = new EditBox(
       this.font,
-      this.font.width(Component.translatable("config.screen.label.custom-command4")) + 15,
+      this.font.width(Component.translatable("config.macutils.screen.label.custom-command4")) + 15,
       96,
       Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
       16,
-      Component.translatable("config.screen.placeholder.custom-command4")
+      Component.translatable("config.macutils.screen.placeholder.custom-command4")
     );
 
     EditBox customCommand5Input = new EditBox(
       this.font,
-      this.font.width(Component.translatable("config.screen.label.custom-command5")) + 15,
+      this.font.width(Component.translatable("config.macutils.screen.label.custom-command5")) + 15,
       116,
       Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
       16,
-      Component.translatable("config.screen.placeholder.custom-command5")
+      Component.translatable("config.macutils.screen.placeholder.custom-command5")
     );
 
     customCommand1Input.setValue(Variables.customCommands.get("customCommand1"));
@@ -69,7 +69,7 @@ public class ConfigScreen extends Screen {
     customCommand4Input.setValue(Variables.customCommands.get("customCommand4"));
     customCommand5Input.setValue(Variables.customCommands.get("customCommand5"));
 
-    Button saveAndCloseButton = Button.builder(Component.translatable("config.button.saveAndClose"), (button -> {
+    Button saveAndCloseButton = Button.builder(Component.translatable("config.macutils.button.saveAndClose"), (button -> {
       Variables.customCommands.replace("customCommand1", customCommand1Input.getValue());
       Variables.customCommands.replace("customCommand2", customCommand2Input.getValue());
       Variables.customCommands.replace("customCommand3", customCommand3Input.getValue());
@@ -80,7 +80,7 @@ public class ConfigScreen extends Screen {
     })).bounds(
       10,
       (int) (((double) Minecraft.getInstance().getWindow().getHeight() / Minecraft.getInstance().options.guiScale().get()) * 0.9),
-      this.font.width(Component.translatable("config.button.saveAndClose")) + 16,
+      this.font.width(Component.translatable("config.macutils.button.saveAndClose")) + 16,
       this.font.lineHeight + 16
     ).build();
 
@@ -96,12 +96,12 @@ public class ConfigScreen extends Screen {
   public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
     super.extractRenderState(graphics, mouseX, mouseY, a);
 
-    graphics.text(this.font, Component.translatable("config.screen.title"), 10, 10, 0xFFFFFFFF, true);
-    graphics.text(this.font, Component.translatable("config.screen.label.custom-command1"), 10, 40, 0xFFFFFFFF, true);
-    graphics.text(this.font, Component.translatable("config.screen.label.custom-command2"), 10, 60, 0xFFFFFFFF, true);
-    graphics.text(this.font, Component.translatable("config.screen.label.custom-command3"), 10, 80, 0xFFFFFFFF, true);
-    graphics.text(this.font, Component.translatable("config.screen.label.custom-command4"), 10, 100, 0xFFFFFFFF, true);
-    graphics.text(this.font, Component.translatable("config.screen.label.custom-command5"), 10, 120, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.title"), 10, 10, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.label.custom-command1"), 10, 40, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.label.custom-command2"), 10, 60, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.label.custom-command3"), 10, 80, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.label.custom-command4"), 10, 100, 0xFFFFFFFF, true);
+    graphics.text(this.font, Component.translatable("config.macutils.screen.label.custom-command5"), 10, 120, 0xFFFFFFFF, true);
   }
 
   @Override
