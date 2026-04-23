@@ -15,7 +15,7 @@ public class LockYaw {
         .then(ClientCommands.argument("yaw", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
             Variables.YAWLOCK = FloatArgumentType.getFloat(context, "yaw");
-            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset")).append(String.valueOf(Variables.YAWLOCK)));
+            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset.start")).append(String.valueOf(Variables.YAWLOCK)).append(Component.translatable("message.macutils.lockyaw.yawset.start")));
             return 0;
           })
         ));

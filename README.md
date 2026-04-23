@@ -1,4 +1,4 @@
-# MacUtils 1.3.0
+# MacUtils 1.3.1
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/macutils) ![Static Badge](https://img.shields.io/badge/Minecraft_Version-26.1.2-blue)
 
 ## Features
@@ -15,5 +15,11 @@
 - Custom Commands 1-5 ***Customisable in config screen***
 - Lock / Unlock Pitch
 - Lock / Unlock Yaw
+### Translations
+- English
+- Hungarian (Magyar)
+### Credits
+- IGN/Discord
+- Mocsek/mocsek - Hungarian (Magyar) Translation
 ### Translators wanted!
 If you want to translate the mod into another language please message me on discord (potatoslayer56) and I will show you how.

@@ -28,9 +28,11 @@
   "message.macutils.autofeed.disabled": "§cAutofeed Disabled",
   "message.macutils.lockpitch.enabled": "§aPitch Locked",
   "message.macutils.lockpitch.disabled": "§cPitch Unlocked",
-  "message.macutils.lockpitch.pitchset": "§aSet Pitch Lock to §6",
+  "message.macutils.lockpitch.pitchset.start": "§aSet Pitch Lock to ",
+  "message.macutils.lockpitch.pitchset.end": "",
   "message.macutils.lockyaw.enabled": "§aYaw Locked",
   "message.macutils.lockyaw.disabled": "§cYaw Unlocked",
-  "message.macutils.lockyaw.yawset": "§aSet Yaw Lock to §6",
+  "message.macutils.lockyaw.yawset.start": "§aSet Yaw Lock to ",
+  "message.macutils.lockyaw.yawset.end": "",
   "message.macutils.customcommand.runningtext": "§aRunning "
 }
