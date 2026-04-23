@@ -18,8 +18,10 @@
 ### Translations
 - English
 - Hungarian (Magyar)
+- German
 ### Credits
 - IGN/Discord
 - Mocsek/mocsek - Hungarian (Magyar) Translation
+- Vyrefv/vyrefv. - German Translation
 ### Translators wanted!
 If you want to translate the mod into another language please message me on discord (potatoslayer56) and I will show you how.
