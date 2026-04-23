@@ -14,6 +14,12 @@ public class Variables {
   public static boolean YAWLOCKED = false;
   public static float YAWLOCK = 0;
 
+  public static int MININGFORTUNETIMER = 0;
+  public static int TIMBERFORTUNETIMER = 0;
+
+  public static boolean SLAYERACTIVE = false;
+  public static int SLAYERTIME = 0;
+
   public static Map<String, String> customCommands = new HashMap<>();
 
   public static void initialise() {

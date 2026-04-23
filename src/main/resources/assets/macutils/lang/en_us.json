@@ -34,5 +34,9 @@
   "message.macutils.lockyaw.disabled": "§cYaw Unlocked",
   "message.macutils.lockyaw.yawset.start": "§aSet Yaw Lock to ",
   "message.macutils.lockyaw.yawset.end": "",
-  "message.macutils.customcommand.runningtext": "§aRunning "
+  "message.macutils.customcommand.runningtext": "§aRunning ",
+  "message.macutils.timers.slayerfinish.start": "§aYou finished (or failed) that slayer in ",
+  "message.macutils.timers.slayerfinish.end": "§a seconds!",
+  "title.macutils.fortunes.mining": "§6§lMining Fortune",
+  "title.macutils.fortunes.timber": "§6§lTimber Fortune"
 }

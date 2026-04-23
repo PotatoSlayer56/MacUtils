@@ -1,14 +1,14 @@
 {
-	"required": true,
-	"package": "potatoslayer56.macutils.client.mixin",
-	"compatibilityLevel": "JAVA_25",
-	"client": [
-		"ExampleClientMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "potatoslayer56.macutils.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "ChatListenerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
 }

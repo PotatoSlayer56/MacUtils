@@ -15,7 +15,7 @@ public class LockPitch {
         .then(ClientCommands.argument("pitch", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
             Variables.PITCHLOCK = FloatArgumentType.getFloat(context, "pitch");
-            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockpitch.pitchset.start")).append(String.valueOf(Variables.PITCHLOCK)).append(Component.translatable("message.macutils.lockpitch.pitchset.end")));
+            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockpitch.pitchset.start")).append(Component.literal(String.valueOf(Variables.PITCHLOCK)).withColor(15248405)).append(Component.translatable("message.macutils.lockpitch.pitchset.end")));
             return 0;
           })
         ));
