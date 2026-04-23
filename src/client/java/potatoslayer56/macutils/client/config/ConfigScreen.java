@@ -6,10 +6,14 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;
+import org.jspecify.annotations.Nullable;
 
 public class ConfigScreen extends Screen {
-  public ConfigScreen(Component title) {
-    super(title);
+  private final @Nullable Screen parent;
+
+  public ConfigScreen(@Nullable Screen parent) {
+    super(Component.translatable("screen.title.main"));
+    this.parent = parent;
   }
 
   @Override
@@ -98,5 +102,11 @@ public class ConfigScreen extends Screen {
     graphics.text(this.font, Component.translatable("config.screen.label.custom-command3"), 10, 80, 0xFFFFFFFF, true);
     graphics.text(this.font, Component.translatable("config.screen.label.custom-command4"), 10, 100, 0xFFFFFFFF, true);
     graphics.text(this.font, Component.translatable("config.screen.label.custom-command5"), 10, 120, 0xFFFFFFFF, true);
+  }
+
+  @Override
+  public void onClose() {
+    SaveLoad.saveConfig();
+    Minecraft.getInstance().setScreen(parent);
   }
 }

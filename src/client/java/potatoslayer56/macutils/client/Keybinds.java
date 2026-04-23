@@ -112,7 +112,7 @@ public class Keybinds {
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
       while (openConfigScreenKeyBind.consumeClick()) {
         if (client.player != null) {
-          client.setScreen(new ConfigScreen(Component.translatable("screen.title.main")));
+          client.setScreen(new ConfigScreen(null));
         }
       }
 
