@@ -14,9 +14,11 @@ public class Variables {
   public static boolean YAWLOCKED = false;
   public static float YAWLOCK = 0;
 
+  public static boolean FORTUNETIMERSENABLED = true;
   public static int MININGFORTUNETIMER = 0;
   public static int TIMBERFORTUNETIMER = 0;
 
+  public static boolean SLAYERTIMERSENABLED = true;
   public static boolean SLAYERACTIVE = false;
   public static int SLAYERTIME = 0;
 

@@ -8,7 +8,6 @@ import potatoslayer56.macutils.client.timers.Fortunes;
 import potatoslayer56.macutils.client.timers.Slayers;
 
 public class MacUtilsClient implements ClientModInitializer {
-
 	@Override
 	public void onInitializeClient() {
 		Variables.initialise();

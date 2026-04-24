@@ -8,14 +8,14 @@ import potatoslayer56.macutils.client.config.Variables;
 public class Fortunes {
   public static void register() {
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
-      if (Variables.TIMBERFORTUNETIMER > 0){
+      if (Variables.TIMBERFORTUNETIMER > 0) {
         Variables.TIMBERFORTUNETIMER -= 1;
         if (Variables.TIMBERFORTUNETIMER == 0) {
           Minecraft.getInstance().gui.setTitle(Component.translatable("title.macutils.fortunes.timber"));
         }
       }
 
-      if (Variables.MININGFORTUNETIMER > 0){
+      if (Variables.MININGFORTUNETIMER > 0) {
         Variables.MININGFORTUNETIMER -= 1;
         if (Variables.MININGFORTUNETIMER == 0) {
           Minecraft.getInstance().gui.setTitle(Component.translatable("title.macutils.fortunes.mining"));

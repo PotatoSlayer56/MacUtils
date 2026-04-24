@@ -6,6 +6,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.Checkbox;
 import org.jspecify.annotations.Nullable;
 
 public class ConfigScreen extends Screen {
@@ -18,11 +19,14 @@ public class ConfigScreen extends Screen {
 
   @Override
   protected void init() {
+    int guiScale = Minecraft.getInstance().options.guiScale().get();
+    int windowWidth = Minecraft.getInstance().getWindow().getWidth();
+    int windowHeight = Minecraft.getInstance().getWindow().getHeight();
     EditBox customCommand1Input = new EditBox(
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command1")) + 15,
       36,
-      Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
+      windowWidth / (4 * guiScale),
       16,
       Component.translatable("config.macutils.screen.placeholder.custom-command1")
     );
@@ -31,7 +35,7 @@ public class ConfigScreen extends Screen {
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command2")) + 15,
       56,
-      Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
+      windowWidth / (4 * guiScale),
       16,
       Component.translatable("config.macutils.screen.placeholder.custom-command2")
     );
@@ -40,7 +44,7 @@ public class ConfigScreen extends Screen {
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command3")) + 15,
       76,
-      Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
+      windowWidth / (4 * guiScale),
       16,
       Component.translatable("config.macutils.screen.placeholder.custom-command3")
     );
@@ -49,7 +53,7 @@ public class ConfigScreen extends Screen {
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command4")) + 15,
       96,
-      Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
+      windowWidth / (4 * guiScale),
       16,
       Component.translatable("config.macutils.screen.placeholder.custom-command4")
     );
@@ -58,10 +62,30 @@ public class ConfigScreen extends Screen {
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command5")) + 15,
       116,
-      Minecraft.getInstance().getWindow().getWidth() / (4 * Minecraft.getInstance().options.guiScale().get()),
+      windowWidth / (4 * guiScale),
       16,
       Component.translatable("config.macutils.screen.placeholder.custom-command5")
     );
+
+    Checkbox fortuneTimersCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.fortune"),this.font)
+      .pos(windowWidth / (2 * guiScale), 36)
+      .selected(Variables.FORTUNETIMERSENABLED)
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.fortune")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.FORTUNETIMERSENABLED = value;
+      })
+      .build();
+
+    Checkbox slayerTimersCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.slayers"),this.font)
+      .pos(windowWidth / (2 * guiScale), 56)
+      .selected(Variables.SLAYERTIMERSENABLED)
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.slayers")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.SLAYERTIMERSENABLED = value;
+      })
+      .build();
 
     customCommand1Input.setValue(Variables.customCommands.get("customCommand1"));
     customCommand2Input.setValue(Variables.customCommands.get("customCommand2"));
@@ -79,7 +103,7 @@ public class ConfigScreen extends Screen {
       Minecraft.getInstance().setScreen(null);
     })).bounds(
       10,
-      (int) (((double) Minecraft.getInstance().getWindow().getHeight() / Minecraft.getInstance().options.guiScale().get()) * 0.9),
+      (int) (((double) windowHeight / guiScale) * 0.9),
       this.font.width(Component.translatable("config.macutils.button.saveAndClose")) + 16,
       this.font.lineHeight + 16
     ).build();
@@ -89,6 +113,8 @@ public class ConfigScreen extends Screen {
     this.addRenderableWidget(customCommand3Input);
     this.addRenderableWidget(customCommand4Input);
     this.addRenderableWidget(customCommand5Input);
+    this.addRenderableWidget(fortuneTimersCheckbox);
+    this.addRenderableWidget(slayerTimersCheckbox);
     this.addRenderableWidget(saveAndCloseButton);
   }
 
