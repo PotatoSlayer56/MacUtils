@@ -5,6 +5,7 @@ import potatoslayer56.macutils.client.commands.*;
 import potatoslayer56.macutils.client.config.SaveLoad;
 import potatoslayer56.macutils.client.config.Variables;
 import potatoslayer56.macutils.client.timers.Fortunes;
+import potatoslayer56.macutils.client.timers.HealingItems;
 import potatoslayer56.macutils.client.timers.Slayers;
 
 public class MacUtilsClient implements ClientModInitializer {
@@ -25,5 +26,6 @@ public class MacUtilsClient implements ClientModInitializer {
 
 		Fortunes.register();
 		Slayers.register();
+		HealingItems.register();
 	}
 }

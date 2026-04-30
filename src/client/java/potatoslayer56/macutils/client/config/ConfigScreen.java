@@ -27,7 +27,7 @@ public class ConfigScreen extends Screen {
       guiScale = Minecraft.getInstance().options.guiScale().get();
     }
     else {
-      guiScale = 1;
+      guiScale = 4;
     }
 
     EditBox customCommand1Input = new EditBox(

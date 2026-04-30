@@ -1,6 +1,5 @@
 package potatoslayer56.macutils.client.mixin;
 
-import com.google.errorprone.annotations.Var;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.chat.ChatListener;
 import net.minecraft.network.chat.Component;
@@ -53,12 +52,12 @@ public class ChatListenerMixin {
   @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void healItemTimers(Component message, boolean remote, CallbackInfo ci){
     if(Variables.FRYTIMERENBALED){
-      if(message.getString().contains("FRENCH FRY :") && message.getString().contains("10 heals")){
-        Minecraft.getInstance().gui.setTitle(Component.translatable("title.macutils.timers.fry"));
+      if(message.getString().contains("FRENCH FRY") && message.getString().contains("10 heals")){
+        Variables.FRYTIMER = 60 * 20;
       }
     }
     if(Variables.MOLTENBLADETIMERENABLED){
-      if(message.getString().contains("MOLTEN BLADE :")){
+      if(message.getString().contains("MOLTEN BLADE")){
         if(message.getString().contains("9")){
           Variables.MOLTENBLADETIMER = 15 * 20;
         }
@@ -96,7 +95,7 @@ public class ChatListenerMixin {
   //@Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void copyRNGMessages(Component message, boolean remote, CallbackInfo ci){
     if(Variables.COPYRNGMESSAGESENABLED){
-      if(message.getString().contains("RARE DROP")){
+      if(message.getString().contains("RARE DROP") || message.getString().contains("CRAZY RARE DROP") || message.getString().contains("INSANE DROP")){
         Minecraft.getInstance().keyboardHandler.setClipboard(message.getString());
         Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.rngcopy")));
       }

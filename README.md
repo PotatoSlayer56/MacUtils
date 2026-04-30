@@ -1,4 +1,4 @@
-# MacUtils 1.3.1
+# MacUtils 1.5.0
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/macutils) ![Static Badge](https://img.shields.io/badge/Minecraft_Version-26.1.2-blue)
 
 ## Features
@@ -15,6 +15,10 @@
 - Custom Commands 1-5 ***Customisable in config screen***
 - Lock / Unlock Pitch
 - Lock / Unlock Yaw
+- Slayer Timer
+- Mining/Timber Fortune Timers
+- Healing Item Timers
+- Miniboss/Boss Messages
 ### Translations
 - English
 - Hungarian (Magyar)
