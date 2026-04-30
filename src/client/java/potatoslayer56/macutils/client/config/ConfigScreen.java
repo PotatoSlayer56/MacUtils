@@ -19,9 +19,17 @@ public class ConfigScreen extends Screen {
 
   @Override
   protected void init() {
-    int guiScale = Minecraft.getInstance().options.guiScale().get();
+    int guiScale;
     int windowWidth = Minecraft.getInstance().getWindow().getWidth();
     int windowHeight = Minecraft.getInstance().getWindow().getHeight();
+
+    if(Minecraft.getInstance().options.guiScale().get() != 0){
+      guiScale = Minecraft.getInstance().options.guiScale().get();
+    }
+    else {
+      guiScale = 1;
+    }
+
     EditBox customCommand1Input = new EditBox(
       this.font,
       this.font.width(Component.translatable("config.macutils.screen.label.custom-command1")) + 15,
@@ -87,6 +95,37 @@ public class ConfigScreen extends Screen {
       })
       .build();
 
+    Checkbox fryTimerCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.frytimer"),this.font)
+      .pos(windowWidth / (2 * guiScale), 76)
+      .selected(Variables.FRYTIMERENBALED)
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.frytimer")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.FRYTIMERENBALED = value;
+      })
+      .build();
+
+
+    Checkbox moltenBladeTimerCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.moltenbladetimer"),this.font)
+      .pos(windowWidth / (2 * guiScale), 96)
+      .selected(Variables.MOLTENBLADETIMERENABLED)
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.moltenbladetimer")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.MOLTENBLADETIMERENABLED = value;
+      })
+      .build();
+
+    Checkbox rngCopyCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.copyrng"),this.font)
+      .pos(windowWidth / (2 * guiScale), 116)
+      .selected(Variables.COPYRNGMESSAGESENABLED)
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.copyrng")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.COPYRNGMESSAGESENABLED = value;
+      })
+      .build();
+
     customCommand1Input.setValue(Variables.customCommands.get("customCommand1"));
     customCommand2Input.setValue(Variables.customCommands.get("customCommand2"));
     customCommand3Input.setValue(Variables.customCommands.get("customCommand3"));
@@ -115,6 +154,9 @@ public class ConfigScreen extends Screen {
     this.addRenderableWidget(customCommand5Input);
     this.addRenderableWidget(fortuneTimersCheckbox);
     this.addRenderableWidget(slayerTimersCheckbox);
+    this.addRenderableWidget(fryTimerCheckbox);
+    this.addRenderableWidget(moltenBladeTimerCheckbox);
+    //this.addRenderableWidget(rngCopyCheckbox);
     this.addRenderableWidget(saveAndCloseButton);
   }
 

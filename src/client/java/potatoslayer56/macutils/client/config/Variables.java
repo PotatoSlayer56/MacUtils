@@ -21,6 +21,16 @@ public class Variables {
   public static boolean SLAYERTIMERSENABLED = true;
   public static boolean SLAYERACTIVE = false;
   public static int SLAYERTIME = 0;
+  public static boolean SLAYERMESSAGESENABLED = true;
+
+  public static boolean COPYRNGMESSAGESENABLED = true;
+
+  public static boolean FRYTIMERENBALED = true;
+  public static int FRYTIMER = 0;
+  public static boolean MOLTENBLADETIMERENABLED = true;
+  public static int MOLTENBLADETIMER = 0;
+  public static boolean BLOODDRINKTIMERENABLED = true;
+  public static int BLOODDRINKTIMER = 0;
 
   public static Map<String, String> customCommands = new HashMap<>();
 
