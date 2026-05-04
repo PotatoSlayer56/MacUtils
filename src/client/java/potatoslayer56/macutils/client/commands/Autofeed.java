@@ -3,8 +3,8 @@ package potatoslayer56.macutils.client.commands;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import potatoslayer56.macutils.client.MacUtilsClient;
 import potatoslayer56.macutils.client.config.Variables;
 
 public class Autofeed {
@@ -13,10 +13,10 @@ public class Autofeed {
       commandDispatcher.register(ClientCommands.literal("autofeed").executes(context -> {
         Variables.AUTOFEED = !Variables.AUTOFEED;
         if (Variables.AUTOFEED) {
-          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.autofeed.enabled")));
+          MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.autofeed.enabled"));
         }
         else {
-          Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.autofeed.disabled")));
+          MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.autofeed.disabled"));
         }
         return 0;
       }));

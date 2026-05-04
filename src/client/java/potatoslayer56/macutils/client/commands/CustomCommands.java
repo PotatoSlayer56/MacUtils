@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import potatoslayer56.macutils.client.MacUtilsClient;
 import potatoslayer56.macutils.client.config.Variables;
 
 public class CustomCommands {
@@ -13,7 +14,7 @@ public class CustomCommands {
       commandDispatcher.register(ClientCommands.literal("customcommand")
         .then(ClientCommands.argument("number", IntegerArgumentType.integer(1,5))
           .executes(context -> {
-            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.customcommand.runningtext")).append(Variables.customCommands.get("customCommand%s".formatted(IntegerArgumentType.getInteger(context, "number")))));
+            MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.customcommand.runningtext").append(Variables.customCommands.get("customCommand%s".formatted(IntegerArgumentType.getInteger(context, "number")))));
             Minecraft.getInstance().player.connection.sendCommand(Variables.customCommands.get("customCommand%s".formatted(IntegerArgumentType.getInteger(context, "number"))));
             return 0;
           })));

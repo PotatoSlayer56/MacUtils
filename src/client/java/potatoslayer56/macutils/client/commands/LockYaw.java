@@ -4,8 +4,8 @@ import com.mojang.brigadier.arguments.FloatArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import potatoslayer56.macutils.client.MacUtilsClient;
 import potatoslayer56.macutils.client.config.Variables;
 
 public class LockYaw {
@@ -15,7 +15,7 @@ public class LockYaw {
         .then(ClientCommands.argument("yaw", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
             Variables.YAWLOCK = FloatArgumentType.getFloat(context, "yaw");
-            Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset.start")).append(Component.literal(String.valueOf(Variables.YAWLOCK)).withColor(15248405)).append(Component.translatable("message.macutils.lockyaw.yawset.end")));
+            MacUtilsClient.sendClientMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset.start")).append(Component.literal(String.valueOf(Variables.YAWLOCK)).withColor(15248405)).append(Component.translatable("message.macutils.lockyaw.yawset.end")));
             return 0;
           })
         ));

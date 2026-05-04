@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potatoslayer56.macutils.client.MacUtilsClient;
 import potatoslayer56.macutils.client.config.Variables;
 
 @Mixin(ChatListener.class)
@@ -31,7 +32,7 @@ public class ChatListenerMixin {
       }
       else if(message.getString().contains("BOSS DEFEATED!")){
         Variables.SLAYERACTIVE = false;
-        Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.timers.slayerfinish.start").append(Component.literal(String.valueOf(Variables.SLAYERTIME / 20)).withColor(15248405)).append(Component.translatable("message.macutils.timers.slayerfinish.end"))));
+        MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.timers.slayerfinish.start").append(Component.literal(String.valueOf(Variables.SLAYERTIME / 20)).withColor(15248405)).append(Component.translatable("message.macutils.timers.slayerfinish.end")));
         Variables.SLAYERTIME = 0;
       }
     }
@@ -97,7 +98,7 @@ public class ChatListenerMixin {
     if(Variables.COPYRNGMESSAGESENABLED){
       if(message.getString().contains("RARE DROP") || message.getString().contains("CRAZY RARE DROP") || message.getString().contains("INSANE DROP")){
         Minecraft.getInstance().keyboardHandler.setClipboard(message.getString());
-        Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.rngcopy")));
+        MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.rngcopy"));
       }
     }
   }

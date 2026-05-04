@@ -1,6 +1,8 @@
 package potatoslayer56.macutils.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import potatoslayer56.macutils.client.commands.*;
 import potatoslayer56.macutils.client.config.SaveLoad;
 import potatoslayer56.macutils.client.config.Variables;
@@ -27,5 +29,9 @@ public class MacUtilsClient implements ClientModInitializer {
 		Fortunes.register();
 		Slayers.register();
 		HealingItems.register();
+	}
+
+	public static void sendClientMessage(Component message){
+		Minecraft.getInstance().gui.getChat().addClientSystemMessage(Component.translatable("prefix.macutils").append(message));
 	}
 }

@@ -1,13 +1,11 @@
 package potatoslayer56.macutils.client;
 
-import com.google.errorprone.annotations.Var;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.server.dialog.Input;
 import org.lwjgl.glfw.GLFW;
 import potatoslayer56.macutils.MacUtils;
 import potatoslayer56.macutils.client.config.ConfigScreen;
