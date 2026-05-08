@@ -13,7 +13,7 @@ public class ConfigScreen extends Screen {
   private final @Nullable Screen parent;
 
   public ConfigScreen(@Nullable Screen parent) {
-    super(Component.translatable("screen.macutils.title.main"));
+    super(Component.translatable("screen.macutils.title"));
     this.parent = parent;
   }
 

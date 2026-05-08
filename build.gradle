@@ -39,6 +39,8 @@ dependencies {
 
 	// GSON Json Library
 	implementation 'com.google.code.gson:gson:2.13.2'
+
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
 	
 }
 
