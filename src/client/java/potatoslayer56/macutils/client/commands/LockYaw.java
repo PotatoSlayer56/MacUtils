@@ -14,8 +14,8 @@ public class LockYaw {
       commandDispatcher.register(ClientCommands.literal("lockyaw")
         .then(ClientCommands.argument("yaw", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
-            Variables.YAWLOCK = FloatArgumentType.getFloat(context, "yaw");
-            MacUtilsClient.sendClientMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset.start")).append(Component.literal(String.valueOf(Variables.YAWLOCK)).withColor(15248405)).append(Component.translatable("message.macutils.lockyaw.yawset.end")));
+            Variables.values.get("yawlock").replace("angle", FloatArgumentType.getFloat(context, "yaw"));
+            MacUtilsClient.sendClientMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockyaw.yawset.start")).append(Component.literal(String.valueOf(Variables.values.get("yawlock").get("angle"))).withColor(15248405)).append(Component.translatable("message.macutils.lockyaw.yawset.end")));
             return 0;
           })
         ));
@@ -23,7 +23,7 @@ public class LockYaw {
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
       if (client.player != null && Variables.YAWLOCKED) {
-        client.player.setYRot(Variables.YAWLOCK);
+        client.player.setYRot(Variables.values.get("yawlock").get("angle"));
       }
     });
   }

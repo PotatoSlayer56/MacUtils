@@ -17,7 +17,7 @@ public class SaveLoad {
     try {
       FileWriter fileWriter = new FileWriter(configPath);
 
-      fileWriter.write(gson.toJson(Variables.customCommands));
+      fileWriter.write(gson.toJson(Variables.config));
 
       fileWriter.close();
     }
@@ -39,19 +39,25 @@ public class SaveLoad {
 
       Gson gson = new Gson();
 
-      Variables.customCommands = gson.fromJson(data.getFirst(), HashMap.class);
+      Variables.config = gson.fromJson(data.getFirst(), HashMap.class);
     }
     catch (IOException e) {
       throw new RuntimeException(e);
     }
+    if(Variables.config.get("customcommands") == null){
+      Variables.config = Variables.defaultConfig;
+    }
+    Variables.customCommands = (java.util.Map<String, String>) Variables.config.get("customcommands");
+    Variables.toggles = (java.util.Map<String, java.util.Map<String, Boolean>>) Variables.config.get("toggles");
+    Variables.values = (java.util.Map<String, java.util.Map<String, Float>>) Variables.config.get("values");
   }
 
   public static void createConfig() {
     try {
       File configFile = new File(configPath);
       if (configFile.createNewFile()) {
-        MacUtils.LOGGER.info("Config created");
         saveConfig();
+        MacUtils.LOGGER.info("Config created");
       }
       else {
         MacUtils.LOGGER.info("Config exists");

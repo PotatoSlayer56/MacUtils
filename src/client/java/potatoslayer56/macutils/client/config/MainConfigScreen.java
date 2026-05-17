@@ -17,7 +17,7 @@ public class MainConfigScreen extends Screen {
 
   @Override
   protected void init() {
-    Button timersConfigButton = Button.builder(Component.translatable("config.macutils.button.moduleconfigbutton"), button -> {
+    Button timersConfigButton = Button.builder(Component.translatable("config.macutils.button.timersconfig"), button -> {
       Minecraft.getInstance().setScreen(new TimersConfigScreen(this));
     }).bounds(
       10,
@@ -26,12 +26,12 @@ public class MainConfigScreen extends Screen {
       this.font.lineHeight + 16
     ).build();
 
-    Button commandsConfigButton = Button.builder(Component.translatable("config.macutils.button.moduleconfigbutton"), button -> {
-      Minecraft.getInstance().setScreen(new TimersConfigScreen(this));
+    Button commandsConfigButton = Button.builder(Component.translatable("config.macutils.button.commandconfig"), button -> {
+      Minecraft.getInstance().setScreen(new CommandsConfigScreen(this));
     }).bounds(
       10,
-      66 + this.font.lineHeight + 16,
-      this.font.width(Component.translatable("config.macutils.button.timersconfig")) + 16,
+      70 + this.font.lineHeight + 16,
+      this.font.width(Component.translatable("config.macutils.button.commandconfig")) + 16,
       this.font.lineHeight + 16
     ).build();
 

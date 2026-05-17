@@ -14,7 +14,7 @@ import potatoslayer56.macutils.client.config.Variables;
 public class ChatListenerMixin {
   @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void fortuneTimers(Component message, boolean remote, CallbackInfo ci){
-    if(Variables.FORTUNETIMERSENABLED){
+    if(Variables.toggles.get("fortune").get("enabled")){
       if(message.getString().contains("Mining Fortune ability used!")){
         Variables.MININGFORTUNETIMER = 6 * 60 * 20;
       }
@@ -26,13 +26,15 @@ public class ChatListenerMixin {
 
   @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void slayerTimers(Component message, boolean remote, CallbackInfo ci){
-    if(Variables.SLAYERTIMERSENABLED){
+    if(Variables.toggles.get("slayer").get("timerenabled")){
       if(message.getString().contains("ZOMBIE SLAYER") || message.getString().contains("FROG SLAYER")){
         Variables.SLAYERACTIVE = true;
       }
       else if(message.getString().contains("BOSS DEFEATED!")){
         Variables.SLAYERACTIVE = false;
-        MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.timers.slayerfinish.start").append(Component.literal(String.valueOf(Variables.SLAYERTIME / 20)).withColor(15248405)).append(Component.translatable("message.macutils.timers.slayerfinish.end")));
+        if (Variables.toggles.get("slayer").get("messagesenabled")) {
+          MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.timers.slayerfinish.start").append(Component.literal(String.valueOf(Variables.SLAYERTIME / 20)).withColor(15248405)).append(Component.translatable("message.macutils.timers.slayerfinish.end")));
+        }
         Variables.SLAYERTIME = 0;
       }
     }
@@ -40,7 +42,7 @@ public class ChatListenerMixin {
 
   @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void slayerSpawnMessages(Component message, boolean remote, CallbackInfo ci){
-    if(Variables.SLAYERMESSAGESENABLED){
+    if(Variables.toggles.get("slayer").get("timerenabled")){
       if(message.getString().toLowerCase().contains("miniboss has spawned")){
         Minecraft.getInstance().gui.setTitle(Component.translatable("title.macutils.slayers.miniboss"));
       }
@@ -52,50 +54,50 @@ public class ChatListenerMixin {
 
   @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void healItemTimers(Component message, boolean remote, CallbackInfo ci){
-    if(Variables.FRYTIMERENBALED){
+    if(Variables.toggles.get("fry").get("enabled")){
       if(message.getString().contains("FRENCH FRY") && message.getString().contains("10 heals")){
         Variables.FRYTIMER = 60 * 20;
       }
     }
-    if(Variables.MOLTENBLADETIMERENABLED){
+    if(Variables.toggles.get("moltenblade").get("enabled")){
       if(message.getString().contains("MOLTEN BLADE")){
-        if(message.getString().contains("9")){
+        if(message.getString().contains("9 charges")){
           Variables.MOLTENBLADETIMER = 15 * 20;
         }
-        else if(message.getString().contains("8")){
+        else if(message.getString().contains("8 charges")){
           Variables.MOLTENBLADETIMER = 30 * 20;
         }
-        else if(message.getString().contains("7")){
+        else if(message.getString().contains("7 charges")){
           Variables.MOLTENBLADETIMER = 45 * 20;
         }
-        else if(message.getString().contains("6")){
+        else if(message.getString().contains("6 charges")){
           Variables.MOLTENBLADETIMER = 60 * 20;
         }
-        else if(message.getString().contains("5")){
+        else if(message.getString().contains("5 charges")){
           Variables.MOLTENBLADETIMER = 75 * 20;
         }
-        else if(message.getString().contains("4")){
+        else if(message.getString().contains("4 charges")){
           Variables.MOLTENBLADETIMER = 90 * 20;
         }
-        else if(message.getString().contains("3")){
+        else if(message.getString().contains("3 charges")){
           Variables.MOLTENBLADETIMER = 105 * 20;
         }
-        else if(message.getString().contains("2")){
+        else if(message.getString().contains("2 charges")){
           Variables.MOLTENBLADETIMER = 120 * 20;
         }
-        else if(message.getString().contains("1")){
+        else if(message.getString().contains("1 charges")){
           Variables.MOLTENBLADETIMER = 135 * 20;
         }
-        else if(message.getString().contains("0")){
+        else if(message.getString().contains("0 charges")){
           Variables.MOLTENBLADETIMER = 150 * 20;
         }
       }
     }
   }
 
-  //@Inject(method = "handleSystemMessage", at = @At("TAIL"))
+  @Inject(method = "handleSystemMessage", at = @At("TAIL"))
   private void copyRNGMessages(Component message, boolean remote, CallbackInfo ci){
-    if(Variables.COPYRNGMESSAGESENABLED){
+    if(Variables.toggles.get("copyrng").get("enabled")){
       if(message.getString().contains("RARE DROP") || message.getString().contains("CRAZY RARE DROP") || message.getString().contains("INSANE DROP")){
         Minecraft.getInstance().keyboardHandler.setClipboard(message.getString());
         MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.rngcopy"));

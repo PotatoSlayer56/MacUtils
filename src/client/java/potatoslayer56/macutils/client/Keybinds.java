@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 import potatoslayer56.macutils.MacUtils;
-import potatoslayer56.macutils.client.config.ConfigScreen;
+import potatoslayer56.macutils.client.config.MainConfigScreen;
 import potatoslayer56.macutils.client.config.Variables;
 
 public class Keybinds {
@@ -110,7 +110,7 @@ public class Keybinds {
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
       while (openConfigScreenKeyBind.consumeClick()) {
         if (client.player != null) {
-          client.setScreen(new ConfigScreen(null));
+          client.setScreen(new MainConfigScreen(null));
         }
       }
 

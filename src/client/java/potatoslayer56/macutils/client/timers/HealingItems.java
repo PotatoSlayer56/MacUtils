@@ -9,7 +9,7 @@ import potatoslayer56.macutils.client.config.Variables;
 public class HealingItems {
   public static void register(){
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
-      if(Variables.FRYTIMERENBALED){
+      if(Variables.toggles.get("fry").get("enabled")){
         if(Variables.FRYTIMER > 0){
           Variables.FRYTIMER -= 1;
           if(Variables.FRYTIMER == 0){
@@ -19,7 +19,7 @@ public class HealingItems {
         }
       }
 
-      if(Variables.MOLTENBLADETIMERENABLED){
+      if(Variables.toggles.get("moltenblade").get("enabled")){
         if(Variables.MOLTENBLADETIMER > 0){
           Variables.MOLTENBLADETIMER -= 1;
           if(Variables.MOLTENBLADETIMER == 0){

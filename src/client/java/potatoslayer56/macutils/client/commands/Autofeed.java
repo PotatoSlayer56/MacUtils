@@ -1,5 +1,6 @@
 package potatoslayer56.macutils.client.commands;
 
+import com.google.errorprone.annotations.Var;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -11,8 +12,8 @@ public class Autofeed {
   public static void register() {
     ClientCommandRegistrationCallback.EVENT.register(((commandDispatcher, commandBuildContext) -> {
       commandDispatcher.register(ClientCommands.literal("autofeed").executes(context -> {
-        Variables.AUTOFEED = !Variables.AUTOFEED;
-        if (Variables.AUTOFEED) {
+        Variables.toggles.get("autofeed").replace("enabled",!Variables.toggles.get("autofeed").get("enabled"));
+        if (Variables.toggles.get("autofeed").get("enabled")) {
           MacUtilsClient.sendClientMessage(Component.translatable("message.macutils.autofeed.enabled"));
         }
         else {
@@ -23,8 +24,8 @@ public class Autofeed {
     }));
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
-      if (Variables.AUTOFEED && client.player != null) {
-        if (Variables.AUTOFEEDNOKICK && client.player.getFoodData().getFoodLevel() <= Variables.AUTOFEEDTHRESHOLD) {
+      if (Variables.toggles.get("autofeed").get("enabled") && client.player != null) {
+        if (Variables.AUTOFEEDNOKICK && client.player.getFoodData().getFoodLevel() <= Variables.values.get("autofeed").get("threshold")) {
           Variables.AUTOFEEDNOKICK = false;
           client.player.connection.sendCommand("feed");
         }

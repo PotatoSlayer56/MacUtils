@@ -14,8 +14,8 @@ public class LockPitch {
       commandDispatcher.register(ClientCommands.literal("lockpitch")
         .then(ClientCommands.argument("pitch", FloatArgumentType.floatArg(-90,90))
           .executes(context -> {
-            Variables.PITCHLOCK = FloatArgumentType.getFloat(context, "pitch");
-            MacUtilsClient.sendClientMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockpitch.pitchset.start")).append(Component.literal(String.valueOf(Variables.PITCHLOCK)).withColor(15248405)).append(Component.translatable("message.macutils.lockpitch.pitchset.end")));
+            Variables.values.get("pitchlock").replace("angle", FloatArgumentType.getFloat(context, "pitch"));
+            MacUtilsClient.sendClientMessage(Component.translatable("prefix.macutils").append(Component.translatable("message.macutils.lockpitch.pitchset.start")).append(Component.literal(String.valueOf(Variables.values.get("pitchlock").get("angle"))).withColor(15248405)).append(Component.translatable("message.macutils.lockpitch.pitchset.end")));
             return 0;
           })
         ));
@@ -23,7 +23,7 @@ public class LockPitch {
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
       if (client.player != null && Variables.PITCHLOCKED) {
-        client.player.setXRot(Variables.PITCHLOCK);
+        client.player.setXRot(Variables.values.get("pitchlock").get("angle"));
       }
     });
   }
