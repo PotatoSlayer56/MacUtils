@@ -59,6 +59,9 @@ public class Variables {
     defaultToggles.put("blooddrink", new HashMap<String, Boolean>(){{
       put("enabled", false);
     }});
+    defaultToggles.put("autowelcome", new HashMap<String, Boolean>(){{
+      put("enabled", false);
+    }});
 
     defaultValues.put("autofeed", new HashMap<String, Float>(){{
       put("threshold", 18.0f);

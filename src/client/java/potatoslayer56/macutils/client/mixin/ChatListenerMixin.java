@@ -104,4 +104,13 @@ public class ChatListenerMixin {
       }
     }
   }
+
+  @Inject(method = "handleSystemMessage", at = @At("TAIL"))
+  private void autoWelcome(Component message, boolean remote, CallbackInfo ci){
+    if(Variables.toggles.get("autowelcome").get("enabled")){
+      if(message.getString().contains("for the first time")){
+        Minecraft.getInstance().player.connection.sendChat("Welcome!");
+      }
+    }
+  }
 }

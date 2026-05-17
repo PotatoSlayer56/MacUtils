@@ -8,10 +8,10 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import org.jspecify.annotations.Nullable;
 
-public class TimersConfigScreen extends Screen {
+public class ModulesConfigScreen extends Screen {
   private final @Nullable Screen parent;
 
-  public TimersConfigScreen(@Nullable Screen parent) {
+  public ModulesConfigScreen(@Nullable Screen parent) {
     super(Component.translatable("screen.macutils.title"));
     this.parent = parent;
   }
@@ -77,6 +77,16 @@ public class TimersConfigScreen extends Screen {
       .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.copyrng")) + 16)
       .onValueChange((checkbox, value) -> {
         Variables.toggles.get("copyrng").replace("enabled", value);
+      })
+      .build();
+
+    Checkbox autoWelcomeCheckbox = Checkbox
+      .builder(Component.translatable("config.macutils.screen.label.copyrng"),this.font)
+      .pos(10, 116)
+      .selected(Variables.toggles.get("autowelcome").get("enabled"))
+      .maxWidth(this.font.width(Component.translatable("config.macutils.screen.label.copyrng")) + 16)
+      .onValueChange((checkbox, value) -> {
+        Variables.toggles.get("autowelcome").replace("enabled", value);
       })
       .build();
 

@@ -3,6 +3,8 @@
   "prefix.macutils": "§8[§6§lMac§d§lUtils§8] ",
   "prefix.macutils.macchat": "§8[§6§lMac§d§lChat§8] ",
   "config.macutils.screen.title": "MacUtils",
+  "config.macutils.button.moduleconfig": "Modules",
+  "config.macutils.button.commandconfig": "Commands",
   "config.macutils.screen.label.custom-command1": "Custom Command 1",
   "config.macutils.screen.label.custom-command2": "Custom Command 2",
   "config.macutils.screen.label.custom-command3": "Custom Command 3",
